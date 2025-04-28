@@ -58,7 +58,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-image: radial-gradient( circle 988px at 1.5% 2.1%, rgba(173,255,245,1) 0%, rgba(155,209,255,1) 21%, rgba(222,188,255,1) 43.2%, rgba(252,192,255,1) 63.1%, rgba(255,165,238,1) 84.4%, rgba(255,182,212,1) 98.5% );
+      background: rgba(0,0,0,0.8);
       display: none;
       justify-content: center;
       align-items: center;
