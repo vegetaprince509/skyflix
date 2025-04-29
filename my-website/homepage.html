@@ -1,1 +1,107 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHub - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: #f44336;
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .featured {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .movie-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .movie-card img {
+            width: 100%;
+            height: auto;
+        }
+        .movie-card h3 {
+            margin: 10px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            color: #aaa;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skyflix</h1>
+        <p>Your ultimate movie destination</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Now Showing</a>
+        <a href="#">Upcoming</a>
+        <a href="#">Top Rated</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section class="featured">
+        <h2>Featured Movies</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300?text=Movie+1" alt="Movie 1">
+                <h3>Movie Title 1</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300?text=Movie+2" alt="Movie 2">
+                <h3>Movie Title 2</h3>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300?text=Movie+3" alt="Movie 3">
+                <h3>Movie Title 3</h3>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 MovieHub. All rights reserved.</p>
+    </footer>
+</body>
+</html>
