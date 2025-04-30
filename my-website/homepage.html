@@ -86,7 +86,7 @@
     <section class="featured">
         <h2>Featured Movies</h2>
         <div class="movie-grid">
-            <div class="movie-card" id="movies-list">
+            <div class="movie-card" id="search-results">
                 <h3>Movie Title 1</h3>
             </div>
             <div class="movie-card">
@@ -98,6 +98,33 @@
                 <h3>Movie Title 3</h3>
             </div>
         </div>
+      <style>
+  .rounded-search input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+  }
+
+  .rounded-search button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+
+<form class="rounded-search" action="/search" method="get">
+  <input type="text" name="query" placeholder="Search..."
+         <div class="search-modal" id="search-modal">
+    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <div class="results" id="search-results"></div>
+  </div>
+
+</form>
     </section>
     <footer>
         <p>&copy; 2025 Skyflix. All rights reserved.</p> 
