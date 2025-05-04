@@ -1,137 +1,85 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DC•YM</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        header {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            color: #f44336;
-        }
-        nav {
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .featured {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .movie-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .movie-card {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-        }
-        .movie-card img {
-            width: 100%;
-            height: auto;
-        }
-        .movie-card h3 {
-            margin: 10px;
-        }
-        footer {
-            background-color: #1f1f1f;
-            color: #aaa;
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DC•YM</title>
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="preload" href="css/home.css" as="style">
+  <link rel="preload" href="js/home.js" as="script">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script defer src="js/home.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>Skyflix</h1>
-        <p>Your ultimate movie destination</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#">Now Showing</a>
-        <a href="#">Upcoming</a>
-        <a href="#">Top Rated</a>
-        <a href="#">Contact</a>
-    </nav>
-    <section class="featured">
-        <h2>Featured Movies</h2>
-        <div class="movie-grid">
-            <div class="movie-card" id="search-results">
-                <h3>Movie Title 1</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300?text=Movie+2" alt="Movie 2">
-                <h3>Movie Title 2</h3>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300?text=Movie+3" alt="Movie 3">
-                <h3>Movie Title 3</h3>
-            </div>
-        </div>
-      <style>
-  .rounded-search input {
-    padding: 10px;
-    width: 250px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-  }
+  <div class="navbar">
+    <img src="logo.png" alt="LOGO HERE" />
+    <div class="nav-links">
+      <a href="homepage.html">Home</a>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </div>
+  </div>
 
-  .rounded-search button {
-    padding: 10px 20px;
-    border-radius: 25px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-</style>
+  <div class="banner" id="banner">
+    <h1 id="banner-title"></h1>
+  </div>
 
-<form class="rounded-search" action="/search" method="get">
+  <div class="row">
+    <h2>Trending Movies</h2>
+    <div class="list" id="movies-list"></div>
+  </div>
 
-         <div class="search-modal" id="search-modal">
+  <div class="row">
+    <h2>Trending TV Shows</h2>
+    <div class="list" id="tvshows-list"></div>
+  </div>
+
+  <div class="row">
+    <h2>Trending Anime</h2>
+    <div class="list" id="anime-list"></div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+      <div class="modal-body">
+  <img id="modal-image" src="" alt="" />
+  <div class="modal-text">
+    <h2 id="modal-title"></h2>
+    <div class="stars" id="modal-rating"></div>
+    <p id="modal-description"></p>
+  </div>
+</div>
+      
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+          <option value="upcloud">upcloud.com</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-             
     <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-             <div class="results" id="search-results">
     <div class="results" id="search-results"></div>
   </div>
 
-</form>
-    </section>
-    <footer>
-        <p>&copy; 2025 Skyflix. All rights reserved.</p> 
-        <p>•Disclaimer•</p>
-<p>The content provided on this website is for informational and entertainment purposes only. We do not host or upload any videos or movies directly. All movie content (including posters, trailers, synopses, etc.) is sourced from publicly available third-party platforms, and we do not claim ownership over any copyrighted material unless otherwise stated.</p>
-    </footer>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 DC•YM All rights reserved.</p>
+    <div class="footer-links">
+      <a href="homepage.html">Disclaimer</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+  
 </body>
-</html>
