@@ -8,6 +8,9 @@ body {
   background: #111;
   color: #fff;
 }
+.center-logo {
+      text-align: center;
+    }
 
 .navbar {
   display: flex;
