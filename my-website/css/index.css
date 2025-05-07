@@ -120,4 +120,9 @@ button:hover {
 .main-container {
     flex: 1;
 }
+
+<!--CONTACT TAB-->
+h3{
+  text-align: center;
+}
  
