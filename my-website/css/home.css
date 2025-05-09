@@ -34,6 +34,12 @@ body {
   margin: 0 5px;
 }
 
+.nav-links a:hover {
+  color: #DB202C;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
 .search-bar {
   padding: 15px;
   border-radius: 20px;
