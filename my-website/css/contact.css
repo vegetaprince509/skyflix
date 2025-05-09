@@ -59,6 +59,7 @@ button:hover {
 
     nav a:hover {
       text-decoration: underline;
+      color: #DB202C;
     }
 
     .banner {
