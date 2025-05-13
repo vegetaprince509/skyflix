@@ -21,10 +21,10 @@ body {
       text-align: center;
     }
 
-  .facebook logo{
-      font-size: 20px;
-  }
-
+.facebooklogo{
+  text-align: center;
+  text-size: 10px;
+}
 
 button {
   padding: 10px 20px;
