@@ -22,8 +22,9 @@ body {
     }
 
 .facebooklogo{
-  text-align: center;
+  text-align: top-left;
   height: 30px;
+  size: 20px;
 }
 
 button {
