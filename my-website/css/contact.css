@@ -95,13 +95,15 @@ button:hover {
       margin: 10px;
     }
 
-.footer {
-  background: #8a1111;
-  color: #ccc;
-  padding: 20px;
-  text-align: center;
-  margin-top: 40px;
-}
+footer {
+      background-color: #1f1f1f;
+      color: #aaa;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
 
 
     html, body {
