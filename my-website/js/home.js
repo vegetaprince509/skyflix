@@ -54,20 +54,44 @@ const API_KEY = '330f50bce922dedb5512f27b88ddeed4';
     }
 
     function changeServer() {
-      const server = document.getElementById('server').value;
-      const type = currentItem.media_type === "movie" ? "movie" : "tv";
-      let embedURL = "";
+  const server = document.getElementById('server').value;
+  const type = currentItem.media_type === "movie" ? "movie" : "tv";
+  let embedURL = "";
 
-      if (server === "vidsrc.cc") {
-        embedURL = `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`;
-      } else if (server === "vidsrc.me") {
-        embedURL = `https://vidsrc.net/embed/${type}/?tmdb=${currentItem.id}`;
-      } else if (server === "player.videasy.net") {
-        embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
-      }
+  if (server === "vidsrc.cc") {
+    embedURL = `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`;
+  } 
+  else if (server === "vidsrc.me") {
+    embedURL = `https://vidsrc.net/embed/${type}/?tmdb=${currentItem.id}`;
+  } 
+  else if (server === "player.videasy.net") {
+    embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
+  } 
+  else if (server === "multiembed") {
+    embedURL = `https://multiembed.mov/?video_id=${currentItem.id}&tmdb=1&media_type=${type}`;
+  } 
+  else if (server === "2embed") {
+    embedURL = `https://www.2embed.cc/embed/${currentItem.id}`;
+  } 
+  else if (server === "smashystream") {
+    embedURL = `https://embed.smashystream.com/playere.php?tmdb=${currentItem.id}&type=${type}`;
+  } 
+  else if (server === "superembed") {
+    embedURL = `https://moviesapi.club/${type}/${currentItem.id}`;
+  } 
+  else if (server === "movie-web") {
+    embedURL = `https://movie-web.app/media/tmdb-${type}-${currentItem.id}`;
+  } 
+  else if (server === "sflix") {
+    embedURL = `https://sflix.to/${type}/${currentItem.id}`;
+  } 
+  else {
+    // Default fallback server
+    embedURL = `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`;
+  }
 
-      document.getElementById('modal-video').src = embedURL;
-    }
+  document.getElementById('modal-video').src = embedURL;
+}
 
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
