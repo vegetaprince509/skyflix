@@ -26,6 +26,14 @@ const API_KEY = '330f50bce922dedb5512f27b88ddeed4';
 }
 
 
+async function fetchFilipinoMovies() {
+  const res = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_original_language=tl&sort_by=popularity.desc`);
+  const data = await res.json();
+  return data.results;
+}
+
+
+
     function displayBanner(item) {
       document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
       document.getElementById('banner-title').textContent = item.title || item.name;
@@ -134,14 +142,16 @@ const API_KEY = '330f50bce922dedb5512f27b88ddeed4';
     }
 
     async function init() {
-      const movies = await fetchTrending('movie');
-      const tvShows = await fetchTrending('tv');
-      const anime = await fetchTrendingAnime();
+  const movies = await fetchTrending('movie');
+  const tvShows = await fetchTrending('tv');
+  const anime = await fetchTrendingAnime();
+  const filipinoMovies = await fetchFilipinoMovies();
 
-      displayBanner(movies[Math.floor(Math.random() * movies.length)]);
-      displayList(movies, 'movies-list');
-      displayList(tvShows, 'tvshows-list');
-      displayList(anime, 'anime-list');
-    }
+  displayBanner(movies[Math.floor(Math.random() * movies.length)]);
+  displayList(movies, 'movies-list');
+  displayList(tvShows, 'tvshows-list');
+  displayList(anime, 'anime-list');
+  displayList(filipinoMovies, 'tagalog-list');
+}
 
 init();
