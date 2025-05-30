@@ -262,6 +262,20 @@ body {
 
 /* MOBILE DISPLAY START */
 @media (max-width: 768px) {
+.movie-item {
+    width: 120px;
+  }
+  
+  .movie-title {
+    font-size: 12px;
+  }
+  
+  .movie-year {
+    font-size: 10px;
+  }
+}
+
+  
   .navbar {
     flex-direction: row;
     align-items: flex-start;
