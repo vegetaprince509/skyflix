@@ -24,7 +24,7 @@ body {
   height: 40px;
 }
 .nav-links {
-  display: flex;
+  
   align-items: center;
   gap: 10px;
 }
