@@ -39,17 +39,29 @@ async function fetchFilipinoMovies() {
       document.getElementById('banner-title').textContent = item.title || item.name;
     }
 
+    /*start of code for title*/
     function displayList(items, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      items.forEach(item => {
-        const img = document.createElement('img');
-        img.src = `${IMG_URL}${item.poster_path}`;
-        img.alt = item.title || item.name;
-        img.onclick = () => showDetails(item);
-        container.appendChild(img);
-      });
-    }
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  items.forEach(item => {
+    const movieContainer = document.createElement('div');
+    movieContainer.className = 'movie-item';
+    
+    const img = document.createElement('img');
+    img.src = `${IMG_URL}${item.poster_path}`;
+    img.alt = item.title || item.name;
+    img.onclick = () => showDetails(item);
+    
+    const title = document.createElement('div');
+    title.className = 'movie-title';
+    title.textContent = item.title || item.name;
+    
+    movieContainer.appendChild(img);
+    movieContainer.appendChild(title);
+    container.appendChild(movieContainer);
+  });
+}
+/*end of code for title*/
 
     function showDetails(item) {
       currentItem = item;
