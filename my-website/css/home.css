@@ -1,3 +1,27 @@
+/* Add this to your CSS file */
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  width: 150px;
+}
+
+.movie-item img {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.movie-title {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+/*end of code for title*/
+
 * {
   margin: 0;
   padding: 0;
