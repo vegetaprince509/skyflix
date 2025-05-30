@@ -40,24 +40,45 @@ async function fetchFilipinoMovies() {
     }
 
     /*start of code for title*/
-    function displayList(items, containerId) {
+   function displayList(items, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = '';
+  
   items.forEach(item => {
     const movieContainer = document.createElement('div');
     movieContainer.className = 'movie-item';
     
+    // Create image element
     const img = document.createElement('img');
-    img.src = `${IMG_URL}${item.poster_path}`;
+    img.src = item.poster_path ? `${IMG_URL}${item.poster_path}` : 'images/placeholder.jpg';
     img.alt = item.title || item.name;
-    img.onclick = () => showDetails(item);
     
+    // Create info container
+    const infoContainer = document.createElement('div');
+    infoContainer.className = 'movie-info';
+    
+    // Create title element
     const title = document.createElement('div');
     title.className = 'movie-title';
     title.textContent = item.title || item.name;
     
+    // Create year element
+    const year = document.createElement('div');
+    year.className = 'movie-year';
+    
+    // Extract year from release_date or first_air_date
+    const date = item.release_date || item.first_air_date;
+    year.textContent = date ? date.split('-')[0] : 'N/A';
+    
+    // Append elements
+    infoContainer.appendChild(title);
+    infoContainer.appendChild(year);
     movieContainer.appendChild(img);
-    movieContainer.appendChild(title);
+    movieContainer.appendChild(infoContainer);
+    
+    // Add click handler to the whole container
+    movieContainer.onclick = () => showDetails(item);
+    
     container.appendChild(movieContainer);
   });
 }
