@@ -128,30 +128,43 @@ async function fetchFilipinoMovies() {
       document.getElementById('search-results').innerHTML = '';
     }
 
-    async function searchTMDB() {
-      const query = document.getElementById('search-input').value;
-      if (!query.trim()) {
-        document.getElementById('search-results').innerHTML = '';
-        return;
-      }
+    /*title for search modal*/
+async function searchTMDB() {
+  const query = document.getElementById('search-input').value;
+  if (!query.trim()) {
+    document.getElementById('search-results').innerHTML = '';
+    return;
+  }
 
-      const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}`);
-      const data = await res.json();
+  const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}`);
+  const data = await res.json();
 
-      const container = document.getElementById('search-results');
-      container.innerHTML = '';
-      data.results.forEach(item => {
-        if (!item.poster_path) return;
-        const img = document.createElement('img');
-        img.src = `${IMG_URL}${item.poster_path}`;
-        img.alt = item.title || item.name;
-        img.onclick = () => {
-          closeSearchModal();
-          showDetails(item);
-        };
-        container.appendChild(img);
-      });
-    }
+  const container = document.getElementById('search-results');
+  container.innerHTML = '';
+  data.results.forEach(item => {
+    if (!item.poster_path) return;
+    
+    const resultItem = document.createElement('div');
+    resultItem.className = 'search-result-item';
+    
+    const img = document.createElement('img');
+    img.src = `${IMG_URL}${item.poster_path}`;
+    img.alt = item.title || item.name;
+    img.onclick = () => {
+      closeSearchModal();
+      showDetails(item);
+    };
+    
+    const title = document.createElement('p');
+    title.textContent = item.title || item.name;
+    title.className = 'search-result-title';
+    
+    resultItem.appendChild(img);
+    resultItem.appendChild(title);
+    container.appendChild(resultItem);
+  });
+}
+/*end code for title for search modal*/
 
     async function init() {
   const movies = await fetchTrending('movie');
