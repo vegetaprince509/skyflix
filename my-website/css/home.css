@@ -442,7 +442,6 @@ select:focus {
   }
 }
 
-@media (max-width: 480px) {
   .banner h1 {
     font-size: 20px;
     padding: 5px;
