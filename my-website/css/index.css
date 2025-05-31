@@ -137,8 +137,29 @@ button:hover {
   header h1 {
     font-size: 1.5rem;
   }
+
+/* Additional mobile-specific fixes */
+@media screen and (max-width: 480px) {
+  /* Even smaller screens */
+  .banner {
+    padding: 20px 5px;
+    font-size: 1rem;
+  }
   
- /* MOBILE DISPLAY END*/     
+  .movie-card {
+    width: 120px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+ /* MOBILE DISPLAY END*/
+
+
+
+
+  
 /* CONTACT TAB */
 h3{
   text-align: center;
