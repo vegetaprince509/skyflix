@@ -71,15 +71,18 @@ button:hover {
       color: #DB202C;
     }
 
-                   .banner {
-      align-items: center;
-      text-align: center;
-      font-weight: bold;
-      font-size: 24px;
-      padding: 100px;
-      height: 166vh;
-      background-size: cover;
-    }
+.banner {
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 100px;
+  height: 166vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}       
+
     .movie-grid {
       display: flex;
       flex-wrap: wrap;
