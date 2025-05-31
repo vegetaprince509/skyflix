@@ -141,9 +141,11 @@ body {
 .list {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
   position: relative;
+  scroll-behavior: smooth;
+  padding: 10px 0;
 }
+
 
 .list img {
   width: 150px;
@@ -351,11 +353,11 @@ select:focus {
 
 /* Hide default scrollbar */
 
- 
 
 /* MOBILE DISPLAY START */
 @media (max-width: 768px) {
-
+  
+  @media (max-width: 768px) {
   .movie-item {
     width: 120px;
   }
