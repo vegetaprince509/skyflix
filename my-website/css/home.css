@@ -359,8 +359,7 @@ select:focus {
 
 /* MOBILE DISPLAY START */
 @media (max-width: 768px) {
-  
-  @media (max-width: 768px) {
+
   .movie-item {
     width: 120px;
   }
