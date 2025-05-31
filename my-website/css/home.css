@@ -500,14 +500,3 @@ select:focus {
   color: #fff;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .footer-content {
-    font-size: 14px;
-  }
-
-  .footer-links {
-    flex-direction: row;
-    gap: 8px;
-  }
-}
