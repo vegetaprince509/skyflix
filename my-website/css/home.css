@@ -354,9 +354,7 @@ select:focus {
 }
 
 /* Hide default scrollbar */
-.list::-webkit-scrollbar {
-  display: none;
-}
+
 
 .list {
   -ms-overflow-style: none;
