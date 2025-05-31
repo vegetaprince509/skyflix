@@ -355,11 +355,7 @@ select:focus {
 
 /* Hide default scrollbar */
 
-
-.list {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+ 
 
 /* MOBILE DISPLAY START */
 @media (max-width: 768px) {
