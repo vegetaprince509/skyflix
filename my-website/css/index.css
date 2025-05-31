@@ -138,6 +138,18 @@ button:hover {
     font-size: 1.5rem;
   }
 
+  footer {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  footer img {
+    width: 25px;
+    height: 25px;
+  }
+}
+  
+  
 /* Additional mobile-specific fixes */
 @media screen and (max-width: 480px) {
   /* Even smaller screens */
