@@ -141,6 +141,8 @@ body {
 .list {
   display: flex;
   overflow-x: auto;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 .list img {
@@ -304,13 +306,7 @@ select:focus {
 
 
 /* Replace this with your existing .list styles */
-.list {
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-}
+
 
 /* Navigation buttons */
 .list-nav {
