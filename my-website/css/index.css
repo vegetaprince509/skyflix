@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: black;
+  background: url('https://images.app.goo.gl/95ko47w1g5BsqcHT9') center/cover no-repeat; /* Add your image URL here */
   color: white;
   padding: 20px;
   border-radius: 8px;
@@ -12,6 +12,9 @@
   z-index: 1000;
   display: none;
   text-align: center;
+  min-width: 300px; /* Adjust as needed */
+  min-height: 200px; /* Adjust as needed */
+  border: 2px solid #db202c; /* Optional: adds a red border */
 }
 
 .popup-content {
@@ -19,12 +22,15 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay for better text readability */
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .popup-close-btn {
   padding: 8px 16px;
   background-color: #db202c;
-  color: wh;
+  color: white; /* Fixed typo from 'wh' to 'white' */
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -34,8 +40,8 @@
 
 .popup-close-btn:hover {
   background-color: #f0f0f0;
-}
-/*POPUP CODE ENDS*/
+  color: #000; /* Change text color on hover for better contrast */
+}/*POPUP CODE ENDS*/
 * {
   margin: 0;
   padding: 0;
