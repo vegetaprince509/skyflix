@@ -92,7 +92,40 @@
 
     </footer>
             
+<div id="container-4a7fe150e31720fb513ca5918e99a271"></div>
 
+  <div id="sharePopup" class="popup-notification">
+    <div class="popup-content">
+
+      <p>Don't forget to bookmark us <br>and share it to your friends!<br>Sharing is caring.</p>
+
+      <button class="popup-close-btn" onclick="closePopup()">Sure, I will share the love ♥</button>
+
+      <script>
+        // Show the popup when the page loads
+        window.onload = function() {
+          setTimeout(function() {
+            const popup = document.getElementById('sharePopup');
+            popup.style.display = 'block';
+          }, 2000); // Show after 2 seconds
+        };
+
+        function closePopup() {
+          const popup = document.getElementById('sharePopup');
+          popup.style.display = 'none';
+          // Optional: Set a cookie or localStorage to prevent showing again
+          // localStorage.setItem('popupShown', 'true');
+        }
+        // Optional: Close popup if clicked outside
+        window.addEventListener('click', function(event) {
+          const popup = document.getElementById('sharePopup');
+          if (event.target === popup) {
+            closePopup();
+          }
+        });
+      </script>
+    </div>
+  </div>
 
 </body>
 </html>
