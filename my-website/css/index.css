@@ -80,7 +80,7 @@ button:hover {
   height: 166vh;
   background-size: cover;
   background-position: center;
-  transition: background-image 1s ease-in-out;
+  transition: background-image 2s ease-in-out;
 }     
   .banner h1 {
   background: rgba(0, 0, 0, 0.7);
