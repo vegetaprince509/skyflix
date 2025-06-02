@@ -45,7 +45,13 @@ async function fetchFilipinoMovies() {
   const data = await res.json();
   return data.results;
 }
-
+async function fetchKoreanDramas() {
+  const res = await fetch(
+    `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=ko&sort_by=popularity.desc`
+  );
+  const data = await res.json();
+  return data.results;
+}
 // ======================
 // Banner Functions
 // ======================
@@ -214,19 +220,18 @@ async function init() {
     const tvShows = await fetchTrending("tv");
     const anime = await fetchTrendingAnime();
     const filipinoMovies = await fetchFilipinoMovies();
+    const koreanDramas = await fetchKoreanDramas(); // New line
 
-    // Start rotating featured movies in banner
     startBannerRotation(trendingMovies);
 
-    // Display other content
     displayList(trendingMovies, "movies-list");
     displayList(tvShows, "tvshows-list");
     displayList(anime, "anime-list");
     displayList(filipinoMovies, "tagalog-list");
+    displayList(koreanDramas, "korean-list"); // New line
   } catch (error) {
     console.error("Error initializing app:", error);
   }
 }
-
 // Initialize the app when DOM is loaded
 document.addEventListener("DOMContentLoaded", init);
