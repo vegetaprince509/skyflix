@@ -45,14 +45,7 @@ async function fetchFilipinoMovies() {
   const data = await res.json();
   return data.results;
 }
-// Add this with the other API fetch functions
-async function fetchKoreanDramas() {
-  const res = await fetch(
-    `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=ko&sort_by=first_air_date.desc&with_genres=18`
-  );
-  const data = await res.json();
-  return data.results;
-}
+
 // ======================
 // Banner Functions
 // ======================
@@ -154,22 +147,10 @@ function changeServer() {
     smashystream: `https://embed.smashystream.com/playere.php?tmdb=${currentItem.id}&type=${type}`,
     superembed: `https://moviesapi.club/${type}/${currentItem.id}`,
     "movie-web": `https://movie-web.app/media/tmdb-${type}-${currentItem.id}`,
-    sflix: `https://sflix.to/${type}/${currentItem.id}`,
-    kissasian: `https://kissasian.mx/search?q=${encodeURIComponent(currentItem.name)}`,
-    dramacool: `https://dramacool.hr/search?keyword=${encodeURIComponent(currentItem.name)}`
+    sflix: `https://sflix.to/${type}/${currentItem.id}`
   };
 
-  if (currentItem.original_language === "ko") {
-    if (server === "kissasian" || server === "dramacool") {
-      embedURL = serverUrls[server];
-    } else {
-      // Default to a server that works well with Korean content
-      embedURL = `https://multiembed.mov/?video_id=${currentItem.id}&tmdb=1&media_type=${type}`;
-    }
-  } else {
-    embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
-  }
-
+  embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
   document.getElementById("modal-video").src = embedURL;
 }
 
@@ -233,7 +214,6 @@ async function init() {
     const tvShows = await fetchTrending("tv");
     const anime = await fetchTrendingAnime();
     const filipinoMovies = await fetchFilipinoMovies();
-    const koreanDramas = await fetchKoreanDramas();
 
     // Start rotating featured movies in banner
     startBannerRotation(trendingMovies);
@@ -243,7 +223,6 @@ async function init() {
     displayList(tvShows, "tvshows-list");
     displayList(anime, "anime-list");
     displayList(filipinoMovies, "tagalog-list");
-    displayList(koreanDramas, "kdrama-list");
   } catch (error) {
     console.error("Error initializing app:", error);
   }
