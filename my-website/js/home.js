@@ -48,7 +48,7 @@ async function fetchFilipinoMovies() {
 // Add this with the other API fetch functions
 async function fetchKoreanDramas() {
   const res = await fetch(
-    `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=ko&sort_by=popularity.desc&with_genres=18`
+    `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=ko&sort_by=first_air_date.desc&with_genres=18`
   );
   const data = await res.json();
   return data.results;
