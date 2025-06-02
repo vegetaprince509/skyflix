@@ -159,7 +159,6 @@ function changeServer() {
     dramacool: `https://dramacool.hr/search?keyword=${encodeURIComponent(currentItem.name)}`
   };
 
-  // Special handling for Korean dramas
   if (currentItem.original_language === "ko") {
     if (server === "kissasian" || server === "dramacool") {
       embedURL = serverUrls[server];
@@ -171,10 +170,6 @@ function changeServer() {
     embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
   }
 
-  document.getElementById("modal-video").src = embedURL;
-}
-
-  embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
   document.getElementById("modal-video").src = embedURL;
 }
 
