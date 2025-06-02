@@ -154,8 +154,25 @@ function changeServer() {
     smashystream: `https://embed.smashystream.com/playere.php?tmdb=${currentItem.id}&type=${type}`,
     superembed: `https://moviesapi.club/${type}/${currentItem.id}`,
     "movie-web": `https://movie-web.app/media/tmdb-${type}-${currentItem.id}`,
-    sflix: `https://sflix.to/${type}/${currentItem.id}`
+    sflix: `https://sflix.to/${type}/${currentItem.id}`,
+    kissasian: `https://kissasian.mx/search?q=${encodeURIComponent(currentItem.name)}`,
+    dramacool: `https://dramacool.hr/search?keyword=${encodeURIComponent(currentItem.name)}`
   };
+
+  // Special handling for Korean dramas
+  if (currentItem.original_language === "ko") {
+    if (server === "kissasian" || server === "dramacool") {
+      embedURL = serverUrls[server];
+    } else {
+      // Default to a server that works well with Korean content
+      embedURL = `https://multiembed.mov/?video_id=${currentItem.id}&tmdb=1&media_type=${type}`;
+    }
+  } else {
+    embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
+  }
+
+  document.getElementById("modal-video").src = embedURL;
+}
 
   embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
   document.getElementById("modal-video").src = embedURL;
