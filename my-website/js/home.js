@@ -153,7 +153,9 @@ function changeServer() {
     smashystream: `https://embed.smashystream.com/playere.php?tmdb=${currentItem.id}&type=${type}`,
     superembed: `https://moviesapi.club/${type}/${currentItem.id}`,
     "movie-web": `https://movie-web.app/media/tmdb-${type}-${currentItem.id}`,
-    sflix: `https://sflix.to/${type}/${currentItem.id}`
+    sflix: `https://sflix.to/${type}/${currentItem.id}`,
+    kissasian: `https://kissasian.mx/search?q=${encodeURIComponent(currentItem.name)}`,
+    dramacool: `https://dramacool.hr/search?keyword=${encodeURIComponent(currentItem.name)}`
   };
 
   embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
