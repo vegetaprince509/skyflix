@@ -147,7 +147,7 @@ function changeServer() {
   const serverUrls = {
     "vidsrc.cc": `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`,
     "vidsrc.me": `https://vidsrc.net/embed/${type}/?tmdb=${currentItem.id}`,
-    "player.videasy.net": `https://player.videasy.net/embed/${type}/${currentItem.id}`,
+    "player.videasy.net": `https://player.videasy.net/${type}/${currentItem.id}`,
     multiembed: `https://multiembed.mov/?video_id=${currentItem.id}&tmdb=1&media_type=${type}`,
     "2embed": `https://www.2embed.cc/embed/${currentItem.id}`,
     smashystream: `https://embed.smashystream.com/playere.php?tmdb=${currentItem.id}&type=${type}`,
