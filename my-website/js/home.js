@@ -154,9 +154,9 @@ function changeServer() {
     superembed: `https://moviesapi.club/${type}/${currentItem.id}`,
     "movie-web": `https://movie-web.app/media/tmdb-${type}-${currentItem.id}`,
     sflix: `https://sflix.to/${type}/${currentItem.id}`,
-    kissasian: `https://kissasian.mx/search?q=${encodeURIComponent(currentItem.name)}`,
-    dramacool: `https://dramacool.hr/search?keyword=${encodeURIComponent(currentItem.name)}`
+    "korean-server": `https://asianembed.io/${type}/${currentItem.id}` // Added Korean server
   };
+
 
   embedURL = serverUrls[server] || serverUrls["vidsrc.cc"]; // Default fallback
   document.getElementById("modal-video").src = embedURL;
