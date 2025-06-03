@@ -193,7 +193,17 @@ https://ryanmulligan.dev/blog/css-property-new-style/
     scale: 1.2;
   }
 }
+/* Center the CTA button */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
 
+.shiny-cta-link {
+  text-decoration: none;
+}
 /* Add this to your index.css file */
 .popup-notification {
   position: fixed;
