@@ -194,23 +194,6 @@ https://ryanmulligan.dev/blog/css-property-new-style/
   }
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: grid;
-  place-items: center;
-  color: white;
-  background: #02040c;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
 /* Add this to your index.css file */
 .popup-notification {
   position: fixed;
