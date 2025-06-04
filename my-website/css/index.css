@@ -241,11 +241,11 @@ https://ryanmulligan.dev/blog/css-property-new-style/
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.2s;
+  transition: background-color 2s;
 }
 
 .popup-close-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #8484ff;
   color: #000; /* Change text color on hover for better contrast */
 }/*POPUP CODE ENDS*/
 * {
