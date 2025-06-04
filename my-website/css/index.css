@@ -245,7 +245,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
 }
 
 .popup-close-btn:hover {
-  background-color: #8484ff;
+  background-color: #000080;
   color: #000; /* Change text color on hover for better contrast */
 }/*POPUP CODE ENDS*/
 * {
