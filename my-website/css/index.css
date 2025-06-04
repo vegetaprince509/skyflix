@@ -235,7 +235,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
 
 .popup-close-btn {
   padding: 8px 16px;
-  background-color: #db202c;
+  background-color: gray;
   color: white; /* Fixed typo from 'wh' to 'white' */
   border: none;
   border-radius: 20px;
