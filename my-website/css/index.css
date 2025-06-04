@@ -205,12 +205,14 @@ https://ryanmulligan.dev/blog/css-property-new-style/
   text-decoration: none;
 }
 /* Add this to your index.css file */
+/* Add this to your index.css file */
 .popup-notification {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url('images/tbp.jpg') center/cover no-repeat; /* Add your image URL here */
+  background: url("https://img.freepik.com/free-vector/blue-neon-light-rectangle-frame-glow-background_107791-27137.jpg?semt=ais_items_boosted&w=740")
+    center/cover no-repeat;
   color: white;
   padding: 20px;
   border-radius: 8px;
@@ -218,9 +220,9 @@ https://ryanmulligan.dev/blog/css-property-new-style/
   z-index: 1000;
   display: none;
   text-align: center;
-  min-width: 300px; /* Adjust as needed */
-  min-height: 200px; /* Adjust as needed */
-  border: 2px solid #db202c; /* Optional: adds a red border */
+  min-width: 300px;
+  min-height: 200px;
+  border: 2px solid transparent;
 }
 
 .popup-content {
