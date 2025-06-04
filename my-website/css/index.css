@@ -224,15 +224,7 @@ https://ryanmulligan.dev/blog/css-property-new-style/
   border: 2px solid transparent;
 }
 
-.popup-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay for better text readability */
-  padding: 20px;
-  border-radius: 5px;
-}
+
 
 .popup-close-btn {
   padding: 8px 16px;
