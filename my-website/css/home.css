@@ -154,11 +154,12 @@ body {
   position: relative;
   scroll-behavior: smooth;
   padding: 10px 0;
+  gap: 50px; /* This adds space between items */
 }
 
 
 .list img {
-  width: 150px;
+  width: 200px;
   margin-right: 10px;
   cursor: pointer;
   border-radius: 20px;
