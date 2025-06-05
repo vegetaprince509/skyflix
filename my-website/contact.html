@@ -8,75 +8,214 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <script defer src="js/home.js"></script>
     <title>DC•YM</title>
-    
 </head>
 <body>
-    <div class="logo-container center-logo">
-        <a href="index.html">
-    <img src="images/skyflix logo.png" alt="LOGO HERE" /></a>
-</div>
-    <header>
-                <h1>_____________________________</h1>
-                <br>
-                <b>YOUR ULTIMATE MOVIE DESTINATION</b>
-                <h1>_____________________________</h1>
-    </header>
+    <canvas id="glcanvas"></canvas>
+    <div class="content-wrapper">
+        <div class="logo-container center-logo">
+            <a href="index.html">
+                <img src="images/skyflix logo.png" alt="LOGO HERE" /></a>
+        </div>
+        <header>
+            <h1>_____________________________</h1>
+            <br>
+            <b>YOUR ULTIMATE MOVIE DESTINATION</b>
+            <h1>_____________________________</h1>
+        </header>
 
         <nav>
-                <a href="index.html">Home</a>
-                <a href="contact.html">Contact</a>
-                <a href="aboutus.html">About Us</a>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="aboutus.html">About Us</a>
         </nav>
-<br>
-<br>
-
-    <h2>Contact Us</h2>
-
-<br>
-<br>
-<h3>Have feedback or want to buy us a coffee? Reach out on our social media below. ☕︎☕︎</h3>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    
-    <footer>
-        <p>&copy; 2025 Skyflix. All rights reserved.</p> 
+        <br>
         <br>
 
-       <a href="https://www.facebook.com/profile.php?id=61576050727760" target="_blank" rel="noopener noreferrer">
-        <img src="images/facebook logo.png" alt="Facebook" style="width: 30px; height: 30px;">
-    </a>
-       
-       <br><br>
-        <p>•Disclaimer•</p>
+        <h2>Contact Us</h2>
+
         <br>
-        <h5><p>This website does not host any files on its own server. All content is sourced from third-party websites and services. We do not control or endorse the products, services, or materials they provide. </p></h5>
+        <br>
+        <h3>Have feedback or want to buy us a coffee? Reach out on our social media below. ☕︎☕︎</h3>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-    </footer>
-            <script async="async" data-cfasync="false" src="//pl26607204.profitableratecpm.com/4a7fe150e31720fb513ca5918e99a271/invoke.js"></script>
-<div id="container-4a7fe150e31720fb513ca5918e99a271"></div>
+        <footer>
+            <p>&copy; 2025 Skyflix. All rights reserved.</p> 
+            <br>
 
+            <a href="https://www.facebook.com/profile.php?id=61576050727760" target="_blank" rel="noopener noreferrer">
+                <img src="images/facebook logo.png" alt="Facebook" style="width: 30px; height: 30px;">
+            </a>
+            
+            <br><br>
+            <p>•Disclaimer•</p>
+            <br>
+            <h5><p>This website does not host any files on its own server. All content is sourced from third-party websites and services. We do not control or endorse the products, services, or materials they provide. </p></h5>
+        </footer>
+    </div>
 
-  <script type='text/javascript' src='//pl26607122.profitableratecpm.com/ce/93/ad/ce93ad3fb9f08c46d8f114ca8e4540c9.js'></script>
-  
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec2 a_position;
+        void main() {
+            gl_Position = vec4(a_position, 0.0, 1.0);
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+
+        uniform vec2 u_resolution;
+        uniform vec2 u_mouse;
+        uniform float u_time;
+
+        vec3 palette2(float t, float factor) {
+            vec3 a = vec3(0.5) + 0.3 * sin(vec3(0.1, 0.3, 0.5) * factor);
+            vec3 b = vec3(0.5) + 0.3 * cos(vec3(0.2, 0.4, 0.6) * factor);
+            vec3 c = vec3(1.0) + 0.5 * sin(vec3(0.3, 0.7, 0.9) * factor);
+            vec3 d = vec3(0.25, 0.4, 0.55) + 0.2 * cos(vec3(0.5, 0.6, 0.7) * factor);
+            return a + b * cos(6.28318 * (c * t + d));
+        }
+        float hash(vec2 p) {
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+        }
+
+        float noise(vec2 p) {
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            vec2 u = f * f * (3.0 - 2.0 * f);
+            
+            return mix(mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+                    mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+                    u.y);
+        }
+
+        void main() {
+            vec2 st = gl_FragCoord.xy/u_resolution.xy;
+            st.x *= u_resolution.x/u_resolution.y;
+            vec3 color = vec3(0.0);
+            vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / u_resolution.y;
+            uv.x = abs(uv.x);
+            uv *= 20.0;
+
+            for (int i = 0; i < 30; i++) {
+                float t = u_time * 0.01 - float(i);
+                uv *= mat2(cos(t), sin(t), -sin(t), cos(t));
+                uv += noise(sin(uv) * 0.6);
+                uv += noise(-cos(uv) * 0.6);
+
+                color += 0.002 / length(uv + sin(t));
+                
+                float intensity = 0.1 / length(uv - (10.3) * sin(t)) * (length(uv) * sin(float(i) + u_time));
+                
+                color += palette2(float(i) / u_time, u_time * 0.5) * intensity;
+            }
+
+            gl_FragColor = vec4(color, 1.0);
+        }
+    </script>
+    <script>
+        const canvas = document.getElementById('glcanvas');
+        const gl = canvas.getContext('webgl');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function getShaderSource(id) {
+            return document.getElementById(id).textContent;
+        }
+
+        const vertexShaderSource = getShaderSource('vertex-shader');
+        const fragmentShaderSource = getShaderSource('fragment-shader');
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('An error occurred compiling the shaders:', gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        function createProgram(gl, vertexShader, fragmentShader) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.error('Unable to initialize the shader program:', gl.getProgramInfoLog(program));
+                return null;
+            }
+            return program;
+        }
+
+        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = createProgram(gl, vertexShader, fragmentShader);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        const positions = [
+            -1.0, -1.0,
+            1.0, -1.0,
+            -1.0,  1.0,
+            1.0,  1.0,
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        gl.useProgram(program);
+
+        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+        const timeLocation = gl.getUniformLocation(program, 'u_time');
+
+        function render(time) {
+            const startOffset = 20.0;
+            gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+            gl.uniform1f(timeLocation, time * 0.001 + startOffset);
+
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+        }
+
+        resize();
+        function resize() {
+            const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.floor(window.innerWidth * devicePixelRatio);
+            canvas.height = Math.floor(window.innerHeight * devicePixelRatio);
+            gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+            canvas.style.width = window.innerWidth + "px";
+            canvas.style.height = window.innerHeight + "px";
+        }
+
+        window.addEventListener('resize', resize);
+
+        requestAnimationFrame(render);
+    </script>
 </body>
 </html>
-
-
