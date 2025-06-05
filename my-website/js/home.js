@@ -237,3 +237,40 @@ async function init() {
 }
 // Initialize the app when DOM is loaded
 document.addEventListener("DOMContentLoaded", init);
+// Disable Right Click and Developer Tools
+// ======================
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+  // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+  if (e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+      (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+      (e.ctrlKey && e.key === 'U')) {
+    e.preventDefault();
+  }
+});
+
+// Additional protection against console opening
+(function() {
+  var blocker = function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  };
+  
+  // Prevent opening console by right-click inspect
+  document.addEventListener('contextmenu', blocker, true);
+  
+  // Prevent keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+        (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+        (e.ctrlKey && e.key === 'U')) {
+      blocker(e);
+    }
+  }, true);
+})();
