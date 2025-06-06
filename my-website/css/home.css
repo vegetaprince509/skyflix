@@ -130,30 +130,16 @@ body {
 .banner {
   height: 50vh;
   background-size: cover;
-  background-position: center;
   display: flex;
-  align-items: flex-end; /* Align content to bottom */
+  align-items: center;
   padding: 20px;
-  position
 }
 
-.banner::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px; /* Height of the fade effect */
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
-  pointer-events: none; /* Allows clicks to pass through */
-}
+
 
 .banner h1 {
   background: rgba(0, 0, 0, 0.7);
   padding: 10px;
-  margin-bottom: 20px; /* Space above the fade */
-  position: relative;
-  z-index: 1; /* Ensures title appears above the fade */
 }
 
 .row {
@@ -532,4 +518,3 @@ select:focus {
 .footer-links a:hover {
   color: #fff;
 }
-
