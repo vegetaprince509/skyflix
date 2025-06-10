@@ -126,7 +126,7 @@ function showDetails(item) {
   document.getElementById("modal-image").src = `${IMG_URL}${item.poster_path}`;
   const rating = item.vote_average.toFixed(1);
   document.getElementById("modal-rating").innerHTML = `
-    <span style="font-weight: bold; color: gold;">IMDb:</span> ${rating}/10
+    <span style="font-weight: bold; color: white;">IMDb:</span> ${rating}/10
   `;
   
   const serverSelector = document.querySelector('.server-selector');
