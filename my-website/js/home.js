@@ -124,9 +124,11 @@ function showDetails(item) {
   document.getElementById("modal-title").textContent = item.title || item.name;
   document.getElementById("modal-description").textContent = item.overview;
   document.getElementById("modal-image").src = `${IMG_URL}${item.poster_path}`;
-  document.getElementById("modal-rating").innerHTML = "?".repeat(
-    Math.round(item.vote_average / 2)
-  );
+  const rating = item.vote_average.toFixed(1);
+  document.getElementById("modal-rating").innerHTML = `
+    <span style="font-weight: bold; color: gold;">IMDb:</span> ${rating}/10
+  `;
+  
   changeServer();
   document.getElementById("modal").style.display = "flex";
 }
