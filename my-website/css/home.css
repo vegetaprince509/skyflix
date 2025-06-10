@@ -1,4 +1,19 @@
-  header {
+/* Add this to your CSS */
+#stream-error-message {
+  color: #ff6b6b;
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(255, 107, 107, 0.1);
+  border-left: 3px solid #ff6b6b;
+  font-size: 14px;
+}
+
+#stream-error-message strong {
+  color: white;
+  text-decoration: underline;
+}
+
+header {
       background-color: black;
       padding: 20px;
       text-align: center;
