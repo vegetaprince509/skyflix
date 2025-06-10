@@ -135,7 +135,7 @@ function showDetails(item) {
     errorMessage.id = 'stream-error-message';
     errorMessage.style.color = 'white';
     errorMessage.style.marginBottom = '15px';
-    errorMessage.style.fontSize = '14px';
+    errorMessage.style.fontSize = '16px';
     errorMessage.innerHTML = 'If you get any error message when trying to stream, please <strong>Refresh</strong> the page or switch to another streaming server below.';
     serverSelector.parentNode.insertBefore(errorMessage, serverSelector);
   }
