@@ -149,13 +149,31 @@ body {
   align-items: center;
   padding: 20px;
 }
-
-
-
 .banner h1 {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0, 1);
   padding: 10px;
 }
+
+.banner-content {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 600px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+#banner-description {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 
 .row {
   margin: 20px;
