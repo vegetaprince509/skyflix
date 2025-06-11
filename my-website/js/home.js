@@ -60,6 +60,7 @@ function displayBanner(item) {
     "banner"
   ).style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
   document.getElementById("banner-title").textContent = item.title || item.name;
+  document.getElementById("banner-description").textContent = item.overview || "No description available";
 }
 
 function startBannerRotation(movies) {
