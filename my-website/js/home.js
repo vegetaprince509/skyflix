@@ -86,6 +86,8 @@ function displayList(items, containerId) {
   container.innerHTML = "";
 
   items.forEach((item) => {
+    if (!item.poster_path) return; // Skip items without poster images
+
     const movieContainer = document.createElement("div");
     movieContainer.className = "movie-item";
 
@@ -94,6 +96,7 @@ function displayList(items, containerId) {
       ? `${IMG_URL}${item.poster_path}`
       : "images/placeholder.jpg";
     img.alt = item.title || item.name;
+    img.loading = "lazy"; // Add lazy loading
 
     const infoContainer = document.createElement("div");
     infoContainer.className = "movie-info";
