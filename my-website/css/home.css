@@ -150,6 +150,7 @@ body {
   padding: 20px;
 }
 .banner h1 {
+  font-family: Papyrus, fantasy;
   background: rgba(0, 0, 0, 0, 1);
   padding: 10px;
 }
