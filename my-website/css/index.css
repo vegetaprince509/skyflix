@@ -333,7 +333,7 @@ button:hover {
   transition: background-image 2s ease-in-out;
 }     
   #banner-title {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 20px;
   border-radius: 10px;
   display: inline-block;
