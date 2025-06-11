@@ -75,7 +75,7 @@ function startBannerRotation(movies) {
   bannerInterval = setInterval(() => {
     displayBanner(movies[currentIndex]);
     currentIndex = (currentIndex + 1) % movies.length;
-  }, 6000); // Change every 5 seconds
+  }, 8000); // Change every 8 seconds
 }
 
 // ======================
