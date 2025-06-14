@@ -106,7 +106,7 @@ header {
   box-sizing: border-box;
 }
 body {
-  font-family: Papyrus, fantasy
+  font-family: Papyrus, fantasy;
   background: #111;
   color: #fff;
 }
