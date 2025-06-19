@@ -319,12 +319,13 @@ body {
 .stars {
   color: gold;
 }
+
 .close {
   position: absolute;
   top: 30px;
   right: 20px;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 50px;
   z-index: 2;
 }
 
