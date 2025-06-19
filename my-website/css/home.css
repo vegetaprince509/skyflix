@@ -35,7 +35,7 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 2s ease;
+  transition: color 1s ease;
 }
 
 .nav-links a:hover {
