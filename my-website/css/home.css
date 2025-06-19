@@ -495,12 +495,24 @@ select:focus {
   }
   
   .banner {
-    height: 30vh;
+    height: 50vh;
+    margin-top: 60px;
     padding: 10px;
+  }
+
+  .banner-content {
+    margin-left: 20px;
+    padding: 20px;
+    max-width: 90%;
   }
   
   .banner h1 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+  }
+  
+  #banner-description {
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
   }
   
   .banner p {
@@ -533,6 +545,27 @@ select:focus {
 @media (max-width: 480px) {
   .logo-container img {
     width: 120px;
+  }
+
+  .banner {
+    height: 40vh;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+  
+  .banner-content {
+    margin: 0 auto;
+    padding: 15px;
+    width: 90%;
+  }
+  
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+  
+  #banner-description {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
   }
 
   .list {
