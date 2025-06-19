@@ -325,6 +325,7 @@ body {
   right: 20px;
   cursor: pointer;
   font-size:50px;
+  z-index: 2;
 }
 
 .server-selector {
@@ -372,6 +373,7 @@ body {
   top: 90px;
   right: 70px;
   font-size: 50px;
+  z-index: 2;
 }
 
 /* Genre filter styles */
