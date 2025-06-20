@@ -491,7 +491,7 @@ select:focus {
   }
   
   .movie-item {
-    width: 120px;
+    min-width: 120px;
   }
   
   .movie-title {
@@ -581,7 +581,7 @@ select:focus {
   }
   
   .movie-item {
-    width: 100px;
+    min-width: 100px;
   }
   
   .movie-title {
