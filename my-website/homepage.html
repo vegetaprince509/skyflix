@@ -7,6 +7,7 @@
   <link rel="preload" href="css/home.css" as="style">
   <link rel="preload" href="js/home.js" as="script">
   <link rel="manifest" href="manifest.json">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <script defer src="js/home.js"></script>
@@ -36,12 +37,17 @@
   </div>
 </div>
 
-  <div class="banner" id="banner">
-  <div class="banner-content">
-    <h1 id="banner-title"></h1>
-    <p id="banner-description"></p>
+  <!-- Updated Banner with Swiper -->
+  <div class="swiper banner-swiper">
+    <div class="swiper-wrapper" id="banner">
+      <!-- Banner slides will be added dynamically by JavaScript -->
+    </div>
+    <!-- Add pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
-</div>
 
   <div class="row">
     <h2>Trending Movies</h2>
@@ -121,7 +127,8 @@
     </div>
   </div>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
 <script async="async" data-cfasync="false" src="//pl26607204.profitableratecpm.com/4a7fe150e31720fb513ca5918e99a271/invoke.js"></script>
 <div id="container-4a7fe150e31720fb513ca5918e99a271"></div>
 
