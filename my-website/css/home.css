@@ -83,6 +83,7 @@ header {
   flex-direction: column;
   margin-right: 15px;
   width: 150px;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
