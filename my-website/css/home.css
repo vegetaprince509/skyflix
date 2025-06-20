@@ -254,8 +254,8 @@ body {
   overflow-x: auto;
   position: relative;
   scroll-behavior: smooth;
-  padding: 10px 0;
-  gap: 50px; /* This adds space between items */
+  padding: 50px 0;
+  gap: 60px; /* This adds space between items */
 }
 
 
