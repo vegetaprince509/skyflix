@@ -53,29 +53,56 @@ async function fetchKoreanDramas() {
   return data.results;
 }
 // ======================
-// Banner Functions
+// Banner Functions - Updated for Swiper
 // ======================
-function displayBanner(item) {
-  document.getElementById(
-    "banner"
-  ).style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
-  document.getElementById("banner-title").textContent = item.title || item.name;
-  document.getElementById("banner-description").textContent = item.overview || "No description available";
+function createBannerSlide(item) {
+  const slide = document.createElement("div");
+  slide.className = "swiper-slide banner-slide";
+  slide.style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
+  
+  const content = document.createElement("div");
+  content.className = "banner-content";
+  
+  const title = document.createElement("h1");
+  title.id = "banner-title";
+  title.textContent = item.title || item.name;
+  
+  const description = document.createElement("p");
+  description.id = "banner-description";
+  description.textContent = item.overview || "No description available";
+  
+  content.appendChild(title);
+  content.appendChild(description);
+  slide.appendChild(content);
+  
+  return slide;
 }
 
-function startBannerRotation(movies) {
-  // Clear any existing interval
-  if (bannerInterval) clearInterval(bannerInterval);
-
-  // Display first movie immediately
-  displayBanner(movies[0]);
-
-  // Start rotating through movies
-  let currentIndex = 1;
-  bannerInterval = setInterval(() => {
-    displayBanner(movies[currentIndex]);
-    currentIndex = (currentIndex + 1) % movies.length;
-  }, 8000); // Change every 8 seconds
+function initializeBannerSwiper(movies) {
+  const bannerContainer = document.getElementById("banner");
+  bannerContainer.innerHTML = "";
+  
+  // Create slides for each movie
+  movies.forEach(movie => {
+    bannerContainer.appendChild(createBannerSlide(movie));
+  });
+  
+  // Initialize Swiper
+  bannerSwiper = new Swiper('.banner-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 }
 
 // ======================
@@ -228,7 +255,7 @@ async function searchTMDB() {
 }
 
 // ======================
-// Initialization
+// Initialization - Updated to use Swiper
 // ======================
 async function init() {
   try {
@@ -236,15 +263,15 @@ async function init() {
     const tvShows = await fetchTrending("tv");
     const anime = await fetchTrendingAnime();
     const filipinoMovies = await fetchFilipinoMovies();
-    const koreanDramas = await fetchKoreanDramas(); // New line
+    const koreanDramas = await fetchKoreanDramas();
 
-    startBannerRotation(trendingMovies);
+    initializeBannerSwiper(trendingMovies);
 
     displayList(trendingMovies, "movies-list");
     displayList(tvShows, "tvshows-list");
     displayList(anime, "anime-list");
     displayList(filipinoMovies, "tagalog-list");
-    displayList(koreanDramas, "korean-list"); // New line
+    displayList(koreanDramas, "korean-list");
   } catch (error) {
     console.error("Error initializing app:", error);
   }
