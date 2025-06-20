@@ -108,6 +108,9 @@ header {
   text-overflow: ellipsis;
   margin-bottom: 3px;
 }
+.movie-title:hover {
+  overflow: visible;
+}
 
 .movie-year {
   color: #aaa;
